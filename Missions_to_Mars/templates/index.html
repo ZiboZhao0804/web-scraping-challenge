@@ -10,31 +10,46 @@
 </head>
 
 <body>
-  <div class="container-fluid">
+  <div class="container">
     <div class="jumbotron text-center">
       <h1>Mission to Mars</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
-    <h2>Latest Mars News</h2>
-    <h3>{{ mars.news_title }}</h3>
-    <p>{{ mars.news_p }}</p>
-    <h2>Featured Mars Image</h2>
-    <img src="{{ mars.featured_image_url }}" alt="featured_image">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <h2>Latest Mars News</h2>
+        <h3>{{ mars.news_title }}</h3>
+        <p>{{ mars.news_p }}</p>
+      </div>
+    </div>
 
-    <h3>Mars Fact</h3>
-    {{ mars.html_table | safe }}
 
-    <h2>Mars Hemispheres</h2>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+        <h2>Featured Mars Image</h2>
+        <img src="{{ mars.featured_image_url }}" alt="featured_image">
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+        <br>
+        <h3>Mars Fact</h3>
+        {{ mars.html_table | safe }}
+      </div>
+  </div>
+
+    <h2 class="text-center">Mars Hemispheres</h2>
     <hr>
-
+        <div class="row">
             {% for hemisphere in mars.hemisphere_image_urls %}
-            <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{ hemisphere.img_url }}" alt="{{ hemisphere.title }}" height=200>
-            <div class="card-body">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+              <div class="card border-primary" style="width: 18rem;">
+              <img class="card-img-top" src="{{ hemisphere.img_url }}" alt="{{ hemisphere.title }}" height=200>
+              <div class="card-body">
                 <h5 class="card-title">{{ hemisphere.title }}</h5>
-            </div>
+              </div>
+              </div>
             </div>
             {% endfor %}
+          </div>
   </div>
   </div>
 </body>
