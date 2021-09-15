@@ -10,3 +10,4 @@
 
 ## Step 2 - MongoDB and Flask Application
 
+![mars](https://github.com/ZiboZhao0804/web-scraping-challenge/blob/main/mars.png)
